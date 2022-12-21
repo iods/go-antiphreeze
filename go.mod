@@ -1,3 +1,3 @@
-module "github.com/iods/go-bones"
+module "github.com/iods/go-antiphreeze"
 
-go 1.15
+go 1.19

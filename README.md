@@ -1,13 +1,13 @@
-Go Bones Project Template
-=========================
+Go Antiphreeze
+==============
 
-Touring the anatomy of a Gopher, one commit at a time.
-
-Super basic, most work is in Go Pherit, the SDK. Moving it here to build projects
-from it and let community use it and critique it.
+1. Store scraped sites and queries in Redis
+2. JSON Configuration
+3. Chrome Headless
+4. Twitter Users for entertainment
 
 
 Copyright
 ---------
 
-Copyright (c) 2021, Rye Miller
+Copyright (c) 2022, Rye Miller
