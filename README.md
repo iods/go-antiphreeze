@@ -1,13 +1,13 @@
 Go Antiphreeze
 ==============
 
-1. Store scraped sites and queries in Redis
-2. JSON Configuration
+1. Scrape Stores
+2. JSON, and additional storage options
 3. Chrome Headless
-4. Twitter Users for entertainment
+4. Slack hook to update team members
 
 
 Copyright
 ---------
 
-Copyright (c) 2022, Rye Miller
+Copyright (c) 2023, Rye Miller
