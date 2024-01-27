@@ -1,0 +1,51 @@
+name: "Go Tests - Action"
+
+on:
+  push:
+    branches: ["develop", "main"]
+
+jobs:
+  lint:
+    name: Golang Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Golang
+        uses: actions/setup-go@v4
+        with:
+          go-version-file: 'go.mod'
+      - run: go version
+      - name: Tidy for Golang
+        run: go mod tidy
+      - name: Golang CI lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: latest
+      - name: Test Application
+        run: go test -v ./..
+  analyze:
+    name: Golang analyze
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Golang Setup
+        uses: actions/setup-go@v4
+        with:
+          go-version-file: 'go.mod'
+      - run: go version
+      - name: Golang Code Quality
+        uses: github/codeql-action/init@v2
+        with:
+          languages: go
+      - name: Tidy for Golang
+        run: go mod tidy
+      - name: Release Candidate Build
+        run: make build
+      - name: Code Quality Analysis
+        uses: github/codeql-action/analyze@v2
